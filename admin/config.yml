@@ -20,107 +20,84 @@ slug:
 
 collections:
 
-  # 🏠 HERO SECTION
+  # HERO SECTION
   - name: "hero"
     label: "Hero Section"
-    file: "data/content.json"
-    editor:
-      preview: false
-    fields:
-      - label: "Hero"
+    files:
+      - label: "Hero Content"
         name: "hero"
-        widget: "object"
+        file: "data/content.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "text" }
-          - { label: "Button: Services", name: "btnServices", widget: "string" }
-          - { label: "Button: Get Quote", name: "btnQuote", widget: "string" }
-
-  # 🧭 ABOUT SECTION
-  - name: "about"
-    label: "About Section"
-    file: "data/content.json"
-    editor:
-      preview: false
-    fields:
-      - label: "About"
-        name: "about"
-        widget: "object"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-
-  # 💼 SERVICES SECTION
-  - name: "services"
-    label: "Services Section"
-    file: "data/content.json"
-    editor:
-      preview: false
-    fields:
-      - label: "Services"
-        name: "services"
-        widget: "list"
-        summary: "{{fields.name}}"
-        fields:
-          - { label: "Service Name", name: "name", widget: "string" }
-          - { label: "Description", name: "desc", widget: "text" }
-          - { label: "Image", name: "image", widget: "image", required: false }
-
-  # 🌐 BUSINESS NETWORK
-  - name: "businessNetwork"
-    label: "Business Network Section"
-    file: "data/content.json"
-    editor:
-      preview: false
-    fields:
-      - label: "Business Network"
-        name: "businessNetwork"
-        widget: "object"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "text" }
-          - label: "Partners"
-            name: "partners"
-            widget: "list"
-            fields:
-              - { label: "Category", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Icon", name: "icon", widget: "image", required: false }
-          - label: "Success Stories"
-            name: "successStories"
-            widget: "list"
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button (Services)", name: "btnServices", widget: "string" }
+              - { label: "Button (Quote)", name: "btnQuote", widget: "string" }
 
-  # 🧩 ECOSYSTEM / NEW SERVICES
-  - name: "newservices"
-    label: "Ecosystem Section (New Services)"
-    file: "data/content.json"
-    editor:
-      preview: false
-    fields:
-      - label: "Ecosystem"
-        name: "newservices"
-        widget: "object"
+  # ABOUT SECTION
+  - name: "about"
+    label: "About Section"
+    files:
+      - label: "About Content"
+        name: "about"
+        file: "data/content.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "text" }
-          - label: "Service Categories"
-            name: "categories"
+          - label: "About"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  # SERVICES SECTION
+  - name: "services"
+    label: "Services Section"
+    files:
+      - label: "Services List"
+        name: "services"
+        file: "data/content.json"
+        fields:
+          - label: "Services"
+            name: "services"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
-              - label: "Sub-items"
-                name: "items"
-                widget: "list"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Detail", name: "desc", widget: "text" }
 
-  # 📰 NEWS COLLECTION
+  # BUSINESS NETWORK SECTION
+  - name: "businessNetwork"
+    label: "Business Network Section"
+    files:
+      - label: "Business Network Content"
+        name: "businessNetwork"
+        file: "data/content.json"
+        fields:
+          - label: "Business Network"
+            name: "businessNetwork"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+
+  # ECOSYSTEM SECTION
+  - name: "newservices"
+    label: "Ecosystem Section"
+    files:
+      - label: "Ecosystem Content"
+        name: "newservices"
+        file: "data/content.json"
+        fields:
+          - label: "Ecosystem"
+            name: "newservices"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+
+  # NEWS (vẫn giữ dạng folder)
   - name: "news"
     label: "News Articles"
     folder: "data/news"
@@ -128,17 +105,15 @@ collections:
     extension: "json"
     format: "json"
     slug: "{{slug}}"
-    identifier_field: "title"
-    summary: "{{title}} — {{date}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Category", name: "category", widget: "string" }
-      - { label: "Author", name: "author", widget: "string", default: "VGBC Team" }
+      - { label: "Author", name: "author", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Cover Image", name: "image", widget: "image" }
       - { label: "Content", name: "content", widget: "markdown" }
 
-  # 🌍 TRANSLATIONS (Đa ngôn ngữ)
+  # TRANSLATIONS
   - name: "translations"
     label: "Translations (i18n)"
     files:
@@ -146,14 +121,14 @@ collections:
         name: "vi"
         file: "translations/vi.json"
         fields:
-          - { label: "Language JSON (vi)", name: "body", widget: "code", default_language: "json" }
+          - { label: "Vietnamese JSON", name: "body", widget: "code", default_language: "json" }
       - label: "English"
         name: "en"
         file: "translations/en.json"
         fields:
-          - { label: "Language JSON (en)", name: "body", widget: "code", default_language: "json" }
+          - { label: "English JSON", name: "body", widget: "code", default_language: "json" }
       - label: "Chinese"
         name: "zh"
         file: "translations/zh.json"
         fields:
-          - { label: "Language JSON (zh)", name: "body", widget: "code", default_language: "json" }
+          - { label: "Chinese JSON", name: "body", widget: "code", default_language: "json" }
