@@ -1,231 +1,159 @@
 backend:
   name: git-gateway
-  branch: main  # hoặc master
+  branch: main          # hoặc "master" nếu repo cũ
+  repo: Tien0404/web-cms  # thay bằng repo GitHub của bạn
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/uploads"     # nơi lưu ảnh thật trong repo
+public_folder: "/images/uploads"   # đường dẫn ảnh trên site
+
+site_url: https://https://vgbcglobal.netlify.app/   # thay bằng domain thật của bạn
+logo_url: /images/logo-removebg-preview.png
+
+publish_mode: editorial_workflow   # cho phép duyệt trước khi publish
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
 
 collections:
-  # Translation Files Management
-  - name: "translations"
-    label: "Translations"
-    files:
-      - file: "translations/vi.json"
-        label: "Vietnamese Translations"
-        name: "vi_translations"
+
+  # 🏠 HERO SECTION
+  - name: "hero"
+    label: "Hero Section"
+    file: "data/content.json"
+    editor:
+      preview: false
+    fields:
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
         fields:
-          - { label: "Navigation", name: "nav", widget: "object", fields: [
-              { label: "Home Label", name: "homeLabel", widget: "string" },
-              { label: "Services", name: "services", widget: "string" },
-              { label: "About", name: "about", widget: "string" },
-              { label: "Testimonials", name: "testimonials", widget: "string" },
-              { label: "Interpreters", name: "phiendichvien", widget: "string" },
-              { label: "Blog", name: "blog", widget: "string" },
-              { label: "News", name: "news", widget: "string" },
-              { label: "Contact", name: "contact", widget: "string" }
-            ]}
-          - { label: "Hero Section", name: "hero", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "text" },
-              { label: "Button Services", name: "btnServices", widget: "string" },
-              { label: "Button Quote", name: "btnQuote", widget: "string" }
-            ]}
-          - { label: "Services", name: "services", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "string" },
-              { label: "Conference", name: "conference", widget: "string" },
-              { label: "Conference Description", name: "conferenceDesc", widget: "text" },
-              { label: "Bilingual MC", name: "bilingualMC", widget: "string" },
-              { label: "Bilingual MC Description", name: "bilingualMCDesc", widget: "text" }
-            ]}
-          - { label: "Contact", name: "contact", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "string" },
-              { label: "Form Fields", name: "form", widget: "object", fields: [
-                { label: "Name", name: "name", widget: "string" },
-                { label: "Email", name: "email", widget: "string" },
-                { label: "Phone", name: "phone", widget: "string" },
-                { label: "Message", name: "message", widget: "string" },
-                { label: "Submit", name: "submit", widget: "string" }
-              ]}
-            ]}
-          - { label: "Footer", name: "footer", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Tagline", name: "tagline", widget: "text" },
-              { label: "Copyright", name: "copyright", widget: "string" },
-              { label: "Contact Info", name: "contactInfo", widget: "object", fields: [
-                { label: "Address", name: "address", widget: "text" },
-                { label: "Phone", name: "phone", widget: "string" },
-                { label: "Email", name: "email", widget: "string" }
-              ]}
-            ]}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Button: Services", name: "btnServices", widget: "string" }
+          - { label: "Button: Get Quote", name: "btnQuote", widget: "string" }
 
-      - file: "translations/en.json"
-        label: "English Translations"
-        name: "en_translations"
+  # 🧭 ABOUT SECTION
+  - name: "about"
+    label: "About Section"
+    file: "data/content.json"
+    editor:
+      preview: false
+    fields:
+      - label: "About"
+        name: "about"
+        widget: "object"
         fields:
-          - { label: "Navigation", name: "nav", widget: "object", fields: [
-              { label: "Home Label", name: "homeLabel", widget: "string" },
-              { label: "Services", name: "services", widget: "string" },
-              { label: "About", name: "about", widget: "string" },
-              { label: "Testimonials", name: "testimonials", widget: "string" },
-              { label: "Interpreters", name: "phiendichvien", widget: "string" },
-              { label: "Blog", name: "blog", widget: "string" },
-              { label: "News", name: "news", widget: "string" },
-              { label: "Contact", name: "contact", widget: "string" }
-            ]}
-          - { label: "Hero Section", name: "hero", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "text" },
-              { label: "Button Services", name: "btnServices", widget: "string" },
-              { label: "Button Quote", name: "btnQuote", widget: "string" }
-            ]}
-          - { label: "Services", name: "services", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "string" },
-              { label: "Conference", name: "conference", widget: "string" },
-              { label: "Conference Description", name: "conferenceDesc", widget: "text" },
-              { label: "Bilingual MC", name: "bilingualMC", widget: "string" },
-              { label: "Bilingual MC Description", name: "bilingualMCDesc", widget: "text" }
-            ]}
-          - { label: "Contact", name: "contact", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "string" },
-              { label: "Form Fields", name: "form", widget: "object", fields: [
-                { label: "Name", name: "name", widget: "string" },
-                { label: "Email", name: "email", widget: "string" },
-                { label: "Phone", name: "phone", widget: "string" },
-                { label: "Message", name: "message", widget: "string" },
-                { label: "Submit", name: "submit", widget: "string" }
-              ]}
-            ]}
-          - { label: "Footer", name: "footer", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Tagline", name: "tagline", widget: "text" },
-              { label: "Copyright", name: "copyright", widget: "string" },
-              { label: "Contact Info", name: "contactInfo", widget: "object", fields: [
-                { label: "Address", name: "address", widget: "text" },
-                { label: "Phone", name: "phone", widget: "string" },
-                { label: "Email", name: "email", widget: "string" }
-              ]}
-            ]}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
 
-      - file: "translations/zh.json"
-        label: "Chinese Translations"
-        name: "zh_translations"
-        fields:
-          - { label: "Navigation", name: "nav", widget: "object", fields: [
-              { label: "Home Label", name: "homeLabel", widget: "string" },
-              { label: "Services", name: "services", widget: "string" },
-              { label: "About", name: "about", widget: "string" },
-              { label: "Testimonials", name: "testimonials", widget: "string" },
-              { label: "Interpreters", name: "phiendichvien", widget: "string" },
-              { label: "Blog", name: "blog", widget: "string" },
-              { label: "News", name: "news", widget: "string" },
-              { label: "Contact", name: "contact", widget: "string" }
-            ]}
-          - { label: "Hero Section", name: "hero", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "text" },
-              { label: "Button Services", name: "btnServices", widget: "string" },
-              { label: "Button Quote", name: "btnQuote", widget: "string" }
-            ]}
-          - { label: "Services", name: "services", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "string" },
-              { label: "Conference", name: "conference", widget: "string" },
-              { label: "Conference Description", name: "conferenceDesc", widget: "text" },
-              { label: "Bilingual MC", name: "bilingualMC", widget: "string" },
-              { label: "Bilingual MC Description", name: "bilingualMCDesc", widget: "text" }
-            ]}
-          - { label: "Contact", name: "contact", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Subtitle", name: "subtitle", widget: "string" },
-              { label: "Form Fields", name: "form", widget: "object", fields: [
-                { label: "Name", name: "name", widget: "string" },
-                { label: "Email", name: "email", widget: "string" },
-                { label: "Phone", name: "phone", widget: "string" },
-                { label: "Message", name: "message", widget: "string" },
-                { label: "Submit", name: "submit", widget: "string" }
-              ]}
-            ]}
-          - { label: "Footer", name: "footer", widget: "object", fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Tagline", name: "tagline", widget: "text" },
-              { label: "Copyright", name: "copyright", widget: "string" },
-              { label: "Contact Info", name: "contactInfo", widget: "object", fields: [
-                { label: "Address", name: "address", widget: "text" },
-                { label: "Phone", name: "phone", widget: "string" },
-                { label: "Email", name: "email", widget: "string" }
-              ]}
-            ]}
-
-  # News Management
-  - name: "news"
-    label: "Tin tức / News"
-    folder: "content/news"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Tiêu đề / Title", name: "title", widget: "string" }
-      - { label: "Ngày đăng / Date", name: "date", widget: "datetime" }
-      - { label: "Danh mục / Category", name: "category", widget: "select", options: ["language", "events", "training", "other"] }
-      - { label: "Tác giả / Author", name: "author", widget: "string" }
-      - { label: "Hình ảnh / Image", name: "image", widget: "image" }
-      - { label: "Nội dung / Content", name: "body", widget: "markdown" }
-
-  # Blog Management
-  - name: "blog"
-    label: "Blog / Kiến thức"
-    folder: "content/blog"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Tiêu đề / Title", name: "title", widget: "string" }
-      - { label: "Ngày đăng / Date", name: "date", widget: "datetime" }
-      - { label: "Danh mục / Category", name: "category", widget: "select", options: ["language", "events", "training", "other"] }
-      - { label: "Tác giả / Author", name: "author", widget: "string" }
-      - { label: "Hình ảnh / Image", name: "image", widget: "image" }
-      - { label: "Nội dung / Content", name: "body", widget: "markdown" }
-
-  # Interpreters Management
-  - name: "interpreters"
-    label: "Phiên dịch viên / Interpreters"
-    folder: "content/interpreters"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Tên / Name", name: "name", widget: "string" }
-      - { label: "Kinh nghiệm / Experience", name: "experience", widget: "string" }
-      - { label: "Ngôn ngữ / Languages", name: "languages", widget: "list", field: { widget: "string" } }
-      - { label: "Chuyên môn / Specializations", name: "specializations", widget: "select", multiple: true, options: ["conference", "business", "technical", "medical", "legal", "education"] }
-      - { label: "Ảnh đại diện / Avatar", name: "avatar", widget: "image" }
-      - { label: "Giới thiệu / Bio", name: "bio", widget: "text" }
-      - { label: "Chứng chỉ / Certifications", name: "certifications", widget: "list", field: { widget: "string" } }
-      - { label: "Trạng thái / Status", name: "status", widget: "select", options: ["available", "busy"] }
-
-  # Testimonials Management
-  - name: "testimonials"
-    label: "Khách hàng nói gì / Testimonials"
-    folder: "content/testimonials"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Tên khách hàng / Client Name", name: "client_name", widget: "string" }
-      - { label: "Chức vụ / Position", name: "position", widget: "string" }
-      - { label: "Công ty / Company", name: "company", widget: "string" }
-      - { label: "Nội dung / Testimonial", name: "content", widget: "text" }
-      - { label: "Ảnh đại diện / Avatar", name: "avatar", widget: "image" }
-
-  # Services Management
+  # 💼 SERVICES SECTION
   - name: "services"
-    label: "Dịch vụ / Services"
-    folder: "content/services"
-    create: true
-    slug: "{{slug}}"
+    label: "Services Section"
+    file: "data/content.json"
+    editor:
+      preview: false
     fields:
-      - { label: "Tiêu đề / Title", name: "title", widget: "string" }
-      - { label: "Mô tả / Description", name: "description", widget: "text" }
-      - { label: "Icon", name: "icon", widget: "string" }
-      - { label: "Ảnh / Image", name: "image", widget: "image" }
-      - { label: "Hiển thị / Display", name: "display", widget: "boolean", default: true }
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        summary: "{{fields.name}}"
+        fields:
+          - { label: "Service Name", name: "name", widget: "string" }
+          - { label: "Description", name: "desc", widget: "text" }
+          - { label: "Image", name: "image", widget: "image", required: false }
+
+  # 🌐 BUSINESS NETWORK
+  - name: "businessNetwork"
+    label: "Business Network Section"
+    file: "data/content.json"
+    editor:
+      preview: false
+    fields:
+      - label: "Business Network"
+        name: "businessNetwork"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Partners"
+            name: "partners"
+            widget: "list"
+            fields:
+              - { label: "Category", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Icon", name: "icon", widget: "image", required: false }
+          - label: "Success Stories"
+            name: "successStories"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+
+  # 🧩 ECOSYSTEM / NEW SERVICES
+  - name: "newservices"
+    label: "Ecosystem Section (New Services)"
+    file: "data/content.json"
+    editor:
+      preview: false
+    fields:
+      - label: "Ecosystem"
+        name: "newservices"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Service Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - label: "Sub-items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Detail", name: "desc", widget: "text" }
+
+  # 📰 NEWS COLLECTION
+  - name: "news"
+    label: "News Articles"
+    folder: "data/news"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "title"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", default: "VGBC Team" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Content", name: "content", widget: "markdown" }
+
+  # 🌍 TRANSLATIONS (Đa ngôn ngữ)
+  - name: "translations"
+    label: "Translations (i18n)"
+    files:
+      - label: "Vietnamese"
+        name: "vi"
+        file: "translations/vi.json"
+        fields:
+          - { label: "Language JSON (vi)", name: "body", widget: "code", default_language: "json" }
+      - label: "English"
+        name: "en"
+        file: "translations/en.json"
+        fields:
+          - { label: "Language JSON (en)", name: "body", widget: "code", default_language: "json" }
+      - label: "Chinese"
+        name: "zh"
+        file: "translations/zh.json"
+        fields:
+          - { label: "Language JSON (zh)", name: "body", widget: "code", default_language: "json" }
