@@ -1,133 +1,97 @@
 backend:
   name: git-gateway
-  branch: main          # hoặc "master" nếu repo cũ
-  repo: Tien0404/web-cms  # thay bằng repo GitHub của bạn
+  branch: main          # hoặc master nếu repo cũ
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
-media_folder: "images/uploads"     # nơi lưu ảnh thật trong repo
-public_folder: "/images/uploads"   # đường dẫn ảnh trên site
-
-site_url: https://vgbcglobal.netlify.app/   # thay bằng domain thật của bạn
+site_url: https://vgbcglobal.netlify.app
 logo_url: /images/logo-removebg-preview.png
 
-publish_mode: editorial_workflow   # cho phép duyệt trước khi publish
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-slug:
-  encoding: "ascii"
-  clean_accents: true
-  sanitize_replacement: "_"
+publish_mode: editorial_workflow
 
 collections:
 
-  # HERO SECTION
-  - name: "hero"
-    label: "Hero Section"
+  # --- 1. Static Sections (HTML trong /pages) ---
+  - name: "sections"
+    label: "Website Sections"
     files:
-      - label: "Hero Content"
+      - label: "Hero Section"
         name: "hero"
-        file: "data/content.json"
+        file: "pages/hero.html"
         fields:
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "text" }
-              - { label: "Button (Services)", name: "btnServices", widget: "string" }
-              - { label: "Button (Quote)", name: "btnQuote", widget: "string" }
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
 
-  # ABOUT SECTION
-  - name: "about"
-    label: "About Section"
-    files:
-      - label: "About Content"
+      - label: "About Section"
         name: "about"
-        file: "data/content.json"
+        file: "pages/about.html"
         fields:
-          - label: "About"
-            name: "about"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
 
-  # SERVICES SECTION
-  - name: "services"
-    label: "Services Section"
-    files:
-      - label: "Services List"
+      - label: "Services Section"
         name: "services"
-        file: "data/content.json"
+        file: "pages/services.html"
         fields:
-          - label: "Services"
-            name: "services"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
 
-  # BUSINESS NETWORK SECTION
-  - name: "businessNetwork"
-    label: "Business Network Section"
-    files:
-      - label: "Business Network Content"
-        name: "businessNetwork"
-        file: "data/content.json"
-        fields:
-          - label: "Business Network"
-            name: "businessNetwork"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "text" }
-
-  # ECOSYSTEM SECTION
-  - name: "newservices"
-    label: "Ecosystem Section"
-    files:
-      - label: "Ecosystem Content"
+      - label: "Ecosystem (New Services)"
         name: "newservices"
-        file: "data/content.json"
+        file: "pages/newservices.html"
         fields:
-          - label: "Ecosystem"
-            name: "newservices"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
 
-  # NEWS (vẫn giữ dạng folder)
+      - label: "Business Network"
+        name: "businessNetwork"
+        file: "pages/business-network.html"
+        fields:
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
+
+      - label: "Contact Section"
+        name: "contact"
+        file: "pages/contact.html"
+        fields:
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
+
+      - label: "Footer"
+        name: "footer"
+        file: "pages/footer.html"
+        fields:
+          - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
+
+  # --- 2. News Articles (dạng Markdown trong /news) ---
   - name: "news"
     label: "News Articles"
-    folder: "data/news"
+    folder: "news"
     create: true
-    extension: "json"
-    format: "json"
     slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Cover Image", name: "image", widget: "image" }
-      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "VGBC Team" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
 
-  # TRANSLATIONS
+  # --- 3. Translations (đa ngôn ngữ JSON) ---
   - name: "translations"
-    label: "Translations (i18n)"
+    label: "Language Translations"
     files:
-      - label: "Vietnamese"
+      - label: "Vietnamese (vi)"
         name: "vi"
         file: "translations/vi.json"
         fields:
           - { label: "Vietnamese JSON", name: "body", widget: "code", default_language: "json" }
-      - label: "English"
+
+      - label: "English (en)"
         name: "en"
         file: "translations/en.json"
         fields:
           - { label: "English JSON", name: "body", widget: "code", default_language: "json" }
-      - label: "Chinese"
+
+      - label: "Chinese (zh)"
         name: "zh"
         file: "translations/zh.json"
         fields:
