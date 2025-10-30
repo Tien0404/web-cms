@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="VGBC - Vietnam Global Business Council" />
+  <meta property="og:description"
+    content="Vietnam’s global trade bridge: strategic connections, elite interpreters, and trusted business representation for sustainable growth." />
+  <meta property="og:image" content="./images/logo-removebg-preview.png" />
+  <meta property="og:url" content="https://vietglobiz.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vietglobiz.com/">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VGBC - Vietnam Global Business Council</title>
+  <meta name="description"
+    content="VGBC là cầu nối thương mại toàn cầu của Việt Nam – kết nối chiến lược, dịch vụ phiên dịch cao cấp, và đại diện doanh nghiệp tin cậy cho phát triển bền vững.">
+  <link rel="icon" type="image/png" href="./images/logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Bạn có thể thay đổi font theo brand của bạn -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+
+
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/scroll-animations.css" />
+</head>
+
+<body>
+
+  <!-- Header/Navigation Component -->
+  <div id="header-component"></div>
+
+  <main id="content">
+    <!-- Hero Section Component -->
+    <div id="hero-component"></div>
+
+    <!-- About Section Component -->
+    <div id="about-component"></div>
+
+    <div id="ecosystem-component"></div>
+
+    <!-- Testimonials Section Component -->
+    <div id="testimonials-component"></div>
+
+    <!-- Business Network Section Component -->
+    <div id="business-network-component"></div>
+
+    <!-- Services Section Component -->
+    <div id="services-component"></div>
+
+    <!-- News Section Component -->
+    <div id="news-component"></div>
+
+    <!-- Contact Section Component -->
+    <div id="contact-component"></div>
+  </main>
+
+  <!-- Footer Component -->
+  <div id="footer-component"></div>
+
+
+
+
+  <!-- Load JavaScript modules -->
+
+  <script src="js/language-manager.js"></script>
+  <script src="js/news-manager.js"></script>
+  <script src="js/blog-manager.js"></script>
+  <script src="js/phiendichvien-manager.js"></script>
+  <script src="js/about-manager.js"></script>
+  <script src="js/data-manager.js"></script>
+  <script src="js/ui-components.js"></script>
+  <script src="js/testimonials-optimized.js"></script>
+  <script src="js/scroll-effects.js"></script>
+  <script src="js/scroll-effects-enhanced.js"></script>
+  <script src="js/animation-performance.js"></script>
+  <script src="js/ecosystem-navigation.js"></script>
+  <script src="js/script.js" defer></script>
+  <script>
+    // Load components and initialize i18n after all components are loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      const components = [
+        { id: 'header-component', url: 'pages/header.html' },
+        { id: 'ecosystem-component', url: 'pages/newservices.html' },
+        { id: 'hero-component', url: 'pages/hero.html' },
+        { id: 'about-component', url: 'pages/about.html' },
+        { id: 'testimonials-component', url: 'pages/testimonials.html' },
+        { id: 'business-network-component', url: 'pages/business-network.html' },
+        { id: 'services-component', url: 'pages/services.html' },
+        { id: 'phiendichvien-component', url: 'pages/phiendichvien.html' },
+        { id: 'blog-component', url: 'pages/blog.html' },
+        { id: 'news-component', url: 'pages/news.html' },
+        { id: 'order-newsletter-component', url: 'pages/order-newsletter.html' },
+        { id: 'contact-component', url: 'pages/contact.html' },
+        { id: 'footer-component', url: 'pages/footer.html' }
+      ];
+
+      // Load all components
+      Promise.all(components.map(component =>
+        fetch(component.url)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(component.id).innerHTML = data;
+            return component.id;
+          })
+          .catch(error => {
+            console.error(`Error loading ${component.url}:`, error);
+            return null;
+          })
+      ))
+        .then(() => {
+          // Reinitialize all components after they are loaded
+          if (window.reinitializeComponents) {
+            window.reinitializeComponents();
+          }
+
+          // Initialize managers
+          if (window.NewsManager) {
+            window.newsManager = new NewsManager();
+            window.newsManager.init();
+          }
+
+          if (window.BlogManager) {
+            window.blogManager = new BlogManager();
+            window.blogManager.init();
+          }
+
+          if (window.PhiendichvienManager) {
+            window.phiendichvienManager = new PhiendichvienManager();
+          }
+
+          if (window.AboutManager) {
+            window.aboutManager = new AboutManager();
+            window.aboutManager.init();
+          }
+
+          // Initialize optimized testimonials slider
+          if (window.initializeTestimonialsSlider) {
+            window.initializeTestimonialsSlider();
+          }
+        })
+        .catch(error => {
+          console.error('Error loading components:', error);
+        });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.UIComponents) window.UIComponents.initializeUIComponents();
+
+      // Initialize optimized testimonials slider if not already initialized
+      setTimeout(() => {
+        if (!window.testimonialsSlider && window.initializeTestimonialsSlider) {
+          window.initializeTestimonialsSlider();
+        }
+      }, 100);
+    });
+  </script>
+
+
+
+</body>
+
+</html>

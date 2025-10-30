@@ -1,0 +1,39 @@
+<nav class="mainnav" aria-label="Điều hướng chính" data-i18n-aria="nav.ariaLabel">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="Trang chủ" data-i18n-aria="nav.homeLabel">
+      <img src="images/logo.jpg" alt="VGBC Logo" class="brand__logo" />
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu">☰</button>
+
+    <ul id="navMenu" class="menu">
+      <li class="menu__item"><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+      <li class="menu__item dropdown">
+        <a href="#" class="dropdown-toggle" data-i18n="nav.services">Dịch vụ</a>
+        <ul class="dropdown-menu">
+          <li><a href="#cabin-simultaneous" data-i18n="nav.cabinSimultaneous">Phiên dịch cabin, phiên dịch song song</a></li>
+          <li><a href="#stage" data-i18n="nav.stage">Phiên dịch sân khấu</a></li>
+          <li><a href="#bilingual-mc" data-i18n="nav.bilingualMc">MC Song Ngữ</a></li>
+          <li><a href="#meeting-exhibition" data-i18n="nav.meetingExhibition">Phiên dịch cuộc họp, tháp tùng, triển lãm</a></li>
+          <li><a href="#online" data-i18n="nav.online">Phiên dịch online</a></li>
+          <li><a href="#language-personnel" data-i18n="nav.languagePersonnel">Nhân sự ngôn ngữ</a></li>
+        </ul>
+      </li>
+      <li class="menu__item"><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+      <li class="menu__item cta"><a href="#contact" data-i18n="nav.contact">Liên hệ</a></li>
+      <li class="menu__item lang-switcher">
+        <div class="lang-dropdown">
+          <button class="lang-toggle" aria-expanded="false" aria-controls="langMenu">
+            <span class="lang-current" data-i18n="lang.current">VI</span>
+            <span class="lang-arrow">▼</span>
+          </button>
+          <ul id="langMenu" class="lang-menu">
+            <li><a href="#" data-lang="vi" class="lang-option active">VI</a></li>
+            <li><a href="#" data-lang="en" class="lang-option">EN</a></li>
+            <li><a href="#" data-lang="zh" class="lang-option">中文</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

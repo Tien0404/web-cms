@@ -1,0 +1,20 @@
+{
+  "logo_url": "",
+  "hero_background_image": "",
+  "hero_background_video": "",
+  "contact": {
+    "address": {
+      "vi": "Hà Nội & TP.HCM",
+      "en": "Hanoi & Ho Chi Minh City",
+      "zh": "河内与胡志明市"
+    },
+    "phone": "+84 123 456 789",
+    "email": "info@vgbc.global",
+    "facebook": "",
+    "youtube": "",
+    "linkedin": ""
+  },
+  "footer": {
+    "copyright_override": ""
+  }
+}

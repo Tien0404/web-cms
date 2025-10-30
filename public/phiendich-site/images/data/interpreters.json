@@ -1,0 +1,61 @@
+{
+  "interpreters": [
+    {
+      "id": 1,
+      "langs": [
+        "vi",
+        "en"
+      ],
+      "specializations": [
+        "conference",
+        "business"
+      ],
+      "experience_years": 10,
+      "rating": 4.8,
+      "status": "available",
+      "avatar": "",
+      "name": {
+        "vi": "Nguyễn Văn A",
+        "en": "Nguyen Van A",
+        "zh": "阮文A"
+      },
+      "bio": {
+        "vi": "Chuyên gia phiên dịch hội nghị, kỹ thuật và tài chính.",
+        "en": "Conference interpreter specializing in technical and finance topics.",
+        "zh": "擅长技术与金融领域的会议口译。"
+      },
+      "certifications": [
+        "VACI",
+        "CIOL"
+      ]
+    },
+    {
+      "id": 2,
+      "langs": [
+        "vi",
+        "zh"
+      ],
+      "specializations": [
+        "business",
+        "legal"
+      ],
+      "experience_years": 6,
+      "rating": 4.6,
+      "status": "busy",
+      "avatar": "",
+      "name": {
+        "vi": "Trần Thị B",
+        "en": "Tran Thi B",
+        "zh": "陈氏B"
+      },
+      "bio": {
+        "vi": "Thông dịch thương mại, pháp lý, đàm phán song ngữ Việt‑Trung.",
+        "en": "Business and legal interpreting, VN‑CN bilingual negotiations.",
+        "zh": "商务与法律口译，越中双语谈判。"
+      },
+      "certifications": [
+        "HSK6"
+      ]
+    }
+  ]
+}

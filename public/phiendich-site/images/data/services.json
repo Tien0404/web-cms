@@ -1,0 +1,38 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "slug": "conference",
+      "icon": "ri-mic-2-line",
+      "image": "",
+      "display": true,
+      "title": {
+        "vi": "Phiên dịch Hội nghị",
+        "en": "Conference Interpretation",
+        "zh": "会议口译"
+      },
+      "description": {
+        "vi": "Cung cấp phiên dịch chuyên nghiệp cho các hội nghị và sự kiện quốc tế.",
+        "en": "Professional interpretation for conferences and international events.",
+        "zh": "为会议和国际活动提供专业口译服务。"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "bilingual-mc",
+      "icon": "ri-user-voice-line",
+      "image": "",
+      "display": true,
+      "title": {
+        "vi": "MC Song ngữ",
+        "en": "Bilingual MC",
+        "zh": "双语主持"
+      },
+      "description": {
+        "vi": "Dẫn dắt sự kiện bằng hai ngôn ngữ.",
+        "en": "Professional two‑language event hosting.",
+        "zh": "以两种语言主持活动。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+/* ==============================
+   MẪU GIAO DIỆN TRANG CHỦ — BẢN GỐC, KHÔNG SAO CHÉP 1:1
+   Bạn có thể chỉnh sửa biến màu/typography để khớp brand của bạn.
+   ================================ */
+
+/* Import CSS modules */
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('pages.css');
+@import url('testimonials-optimized.css');
+@import url('responsive.css');
+@import url("footer-optimized.css");

@@ -1,0 +1,201 @@
+<section class="hero parallax-bg" role="banner" aria-label="Hero" style="background-image: url('images/doitac.jpg'); padding-top: 50px;
+" data-parallax-speed="0.5">
+  <div class="hero__overlay"></div>
+
+  <div class="container hero__inner">
+    <!-- Left column: text content -->
+    <div class="hero__text fade-in-up">
+      <h1 data-i18n="hero.title">Cầu nối thương mại toàn cầu của Việt Nam</h1>
+      <p data-i18n="hero.subtitle">
+        VGBC – Hội Đồng Kinh Doanh Quốc Tế Việt Nam là một tổ chức hoạt động hướng tới phát triển cộng đồng doanh nghiệp
+        với mục tiêu thúc đẩy hợp tác thương mại truyền thông và kết nối doanh nghiệp Việt Nam và doanh nghiệp quốc tế.
+        Thông qua các mối quan hệ chiến lược, đội ngũ phiên dịch viên ưu tú và dịch vụ đại diện uy tín, chúng tôi hỗ trợ
+        doanh nghiệp mở rộng kinh doanh bền vững, nâng tầm thương hiệu và tự tin tiếp cận các cơ hội toàn cầu.
+      </p>
+      <div class="hero__actions fade-in-up">
+        <a class="btn btn--primary" href="#services" data-i18n="hero.btnServices">Xem dịch vụ</a>
+        <a class="btn btn--ghost" href="#contact" data-i18n="hero.btnQuote">Nhận báo giá</a>
+      </div>
+    </div>
+    <div>
+      <!-- Right column: VGBC Ecosystem -->
+      <div class="hero__ecosystem fade-in-up">
+        <h2 class="ecosystem-title" data-i18n="hero.table">Hệ sinh thái VGBC </h2>
+        <div class="ecosystem-grid">
+          <div class="eco-item clickable" data-eco-section="language" data-i18n="hero.1">Cung cấp Phiên dịch Hội nghị
+          </div>
+          <div class="eco-item clickable" data-eco-section="events" data-i18n="hero.2">Cung cấp MC Song ngữ</div>
+          <div class="eco-item clickable" data-eco-section="business" data-i18n="hero.3">Dạy tiếng Anh cho Doanh nghiệp,
+            Doanh nhân</div>
+          <div class="eco-item clickable" data-eco-section="investment" data-i18n="hero.4">Tổ chức sự kiện, hội nghị,
+            hội thảo</div>
+          <div class="eco-item clickable" data-eco-section="representation" data-i18n="hero.5">Truyền thông, quảng cáo
+            báo chí</div>
+        </div>
+
+      </div>
+      <div style=" margin: 20px 0;">
+        <button class="BT" onclick="window.location.href='https://phiendichvgbc.com'" data-i18n="hero.6">Dịch Vụ Phiên
+          Dịch</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* HERO LAYOUT IMPROVED */
+  .hero {
+    position: relative;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    overflow: hidden;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.65) 45%, rgba(0, 0, 0, 0.35));
+    z-index: 1;
+  }
+
+
+
+  .hero__text h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero__text p {
+    font-size: clamp(1rem, 2.3vw, 1.125rem);
+    line-height: 1.7;
+    max-width: 600px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .BT {
+    background: linear-gradient(90deg, #d4af37, #b30000);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+  }
+
+  .BT:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+  }
+
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* ECOSYSTEM PANEL INSIDE HERO */
+  .hero__ecosystem {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+
+    /* ép nằm sát bên trái của grid */
+  }
+
+  .hero__ecosystem .ecosystem-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    text-align: left;
+    width: fit-content;
+  }
+
+  .hero__ecosystem .ecosystem-title::after {
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: var(--brand, #00b4d8);
+    display: block;
+    margin: 10px auto 0;
+  }
+
+  .ecosystem-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px 18px;
+  }
+
+  .eco-item {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .eco-item.clickable {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .eco-item.clickable::after {
+    content: '→';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .eco-item.clickable:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+  }
+
+  .eco-item.clickable:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(3px);
+  }
+
+  @media (max-width: 900px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero__text p {
+      margin: 0 auto;
+    }
+
+    .hero__ecosystem {
+      margin-top: 2rem;
+    }
+
+    .ecosystem-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

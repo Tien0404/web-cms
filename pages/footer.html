@@ -1,0 +1,164 @@
+<footer class="vgbc-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3 data-i18n="footer.title">VGBC – Vietnam Global Business Council</h3>
+      <p data-i18n="footer.tagline">Empowering Global Business – Bridging Vietnam and the World.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i>📍</i>
+          <span data-i18n="footer.contactInfo.address">Ho Chi Minh City | Hanoi | Singapore | Seoul | Beijing</span>
+        </div>
+        <div class="contact-item">
+          <i>📧</i>
+          <span data-i18n="footer.contactInfo.email">haanhpham1111@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <i>📞</i>
+          <span data-i18n="footer.contactInfo.phone">+84 374504168</span>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="social-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn" class="social-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" class="social-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+        <a href="#" aria-label="WeChat" class="social-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/wechat.svg" alt="WeChat">
+        </a>
+        <a href="https://t.me" target="_blank" aria-label="Telegram" class="social-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram">
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+      <ul>  
+        <li><a href="index.html" data-i18n="footer.links.home">Home</a></li>
+        <li><a href="#about" data-i18n="footer.links.about">About Us</a></li>
+        <li><a href="#services" data-i18n="footer.links.services">Services</a></li>
+        <li><a href="https://phiendichvgbc.com" data-i18n="footer.links.interpreters">Interpreters</a></li>
+
+        <li><a href="#contact" data-i18n="footer.links.contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="footer.services">Services</h4>
+      <ul>
+        <li><a href="services.html#cabin" data-i18n="footer.serviceLinks.cabin">Cabin & Simultaneous Interpretation</a>
+        </li>
+        <li><a href="services.html#stage" data-i18n="footer.serviceLinks.stage">Stage Interpretation</a></li>
+        <li><a href="services.html#mc" data-i18n="footer.serviceLinks.mc">Bilingual MC</a></li>
+        <li><a href="services.html#online" data-i18n="footer.serviceLinks.online">Online Interpretation</a></li>
+        <li><a href="services.html#personnel" data-i18n="footer.serviceLinks.personnel">Language Personnel</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="footer.newsletterText">Stay Connected</h4>
+      <p data-i18n="footer.follow">Follow us on social media and subscribe to our newsletter for the latest updates.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+        <input type="email" id="footer-email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email"
+          required>
+        <button type="submit" data-i18n="footer.subscribe">Subscribe</button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="copyright">
+    <span data-i18n="footer.copyright">© <span id="year"></span> VGBC — Professional interpretation team connecting
+      Vietnamese businesses with the world.</span>
+  </div>
+
+  <button class="back-to-top" onclick="scrollToTop()" data-i18n-title="footer.backToTopLabel" title="Back to Top"
+    aria-label="Back to Top">
+    ↑
+  </button>
+</footer>
+
+<script>
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Newsletter form handler
+  function handleNewsletterSubmit(event) {
+    event.preventDefault();
+    const email = document.getElementById('footer-email').value;
+
+    // Show success notification (you can customize this)
+    if (window.showNotification) {
+      window.showNotification('Thank you for subscribing!', 'success');
+    } else {
+      alert('Thank you for subscribing! We will keep you updated.');
+    }
+
+    // Clear form
+    document.getElementById('footer-email').value = '';
+  }
+
+  // Scroll to top function
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  // Show/hide back-to-top button based on scroll position
+  window.addEventListener('scroll', function () {
+    const backToTopButton = document.querySelector('.back-to-top');
+    if (backToTopButton) {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'flex';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    }
+  });
+
+  // Initialize back-to-top button visibility
+  document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.querySelector('.back-to-top');
+    if (backToTopButton) {
+      backToTopButton.style.display = 'none';
+    }
+  });
+
+  // Language change function
+  function changeLanguage(lang) {
+    if (window.languageManager) {
+      window.languageManager.updateLanguage(lang);
+    }
+  }
+
+  // Update footer language selector when language changes
+  if (window.languageManager) {
+    window.languageManager.onLanguageChange(function (lang, translations) {
+      const footerLangSelect = document.getElementById('footer-lang');
+      if (footerLangSelect) {
+        footerLangSelect.value = lang;
+      }
+    });
+  }
+
+  // Initialize footer language selector
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      if (window.languageManager) {
+        const currentLang = window.languageManager.getCurrentLanguage();
+        const footerLangSelect = document.getElementById('footer-lang');
+        if (footerLangSelect && currentLang) {
+          footerLangSelect.value = currentLang;
+        }
+      }
+    }, 500);
+  });
+</script>

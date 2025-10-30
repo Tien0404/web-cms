@@ -1,0 +1,68 @@
+<section id="blog" class="section">
+  <div class="container">
+    <header class="section__header fade-in-up">
+      <h2 data-i18n="blog.title">Bài viết mới</h2>
+      <p class="section__lead" data-i18n="blog.subtitle">Cập nhật những kiến thức mới nhất về phiên dịch và ngôn ngữ.</p>
+    </header>
+    
+    <div id="blogGrid" class="cards cards--grid-3" data-aria-label="blog.ariaLabel">
+      <!-- Blog posts will be loaded here by blog-manager.js -->
+    </div>
+  </div>
+</section>
+
+<!-- Blog Modal -->
+<div id="blogModal" class="modal" aria-hidden="true">
+  <div class="modal__overlay"></div>
+  <div class="modal__content">
+    <div class="modal__header">
+      <h3 data-i18n="blog.addTitle">Thêm bài viết mới</h3>
+      <button class="modal__close" aria-label="Đóng">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <form id="blogForm" class="form-group">
+        <input type="hidden" name="id">
+        
+        <div class="form-group">
+          <label for="blogTitle" data-i18n="blog.form.title">Tiêu đề</label>
+          <input type="text" id="blogTitle" name="title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="blogCategory" data-i18n="blog.form.category">Danh mục</label>
+          <select id="blogCategory" name="category" required>
+            <option value="ngon-ngu" data-i18n="blog.categories.language">Ngôn ngữ</option>
+            <option value="su-kien" data-i18n="blog.categories.events">Sự kiện</option>
+            <option value="dao-tao" data-i18n="blog.categories.training">Đào tạo</option>
+            <option value="khac" data-i18n="blog.categories.other">Khác</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="blogContent" data-i18n="blog.form.content">Nội dung</label>
+          <textarea id="blogContent" name="content" rows="5" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="blogImage" data-i18n="blog.form.image">Hình ảnh (URL)</label>
+          <input type="url" id="blogImage" name="image" placeholder="https://example.com/image.jpg">
+        </div>
+        
+        <div class="form-group">
+          <label for="blogAuthor" data-i18n="blog.form.author">Tác giả</label>
+          <input type="text" id="blogAuthor" name="author" required>
+        </div>
+        
+        <div class="form-group">
+          <button id="saveBlogBtn" type="submit" class="btn btn--primary" data-i18n="blog.form.save">Lưu</button>
+          <button id="cancelBlogBtn" type="button" class="btn btn--ghost" data-i18n="blog.form.cancel">Hủy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

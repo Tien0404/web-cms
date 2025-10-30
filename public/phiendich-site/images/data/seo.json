@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "index.html": {
+      "title": {
+        "vi": "VGBC - Trang chủ",
+        "en": "VGBC - Home",
+        "zh": "VGBC - 首页"
+      },
+      "description": {
+        "vi": "VGBC - Cầu nối thương mại toàn cầu",
+        "en": "VGBC - Global business bridge",
+        "zh": "VGBC - 全球商务桥梁"
+      },
+      "og_image": ""
+    }
+  }
+}

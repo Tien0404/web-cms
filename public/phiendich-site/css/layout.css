@@ -1,0 +1,830 @@
+/* ==============================
+   LAYOUT — Header, Footer, and Navigation
+   ============================== */
+
+/* Topbar */
+.topbar {
+  border-bottom: 1px solid var(--border);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  background: var(--bg);
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.25rem);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.topbar a {
+  color: var(--brand);
+  text-decoration: none
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  align-items: center
+}
+
+.search input {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.625rem, 2vw, 0.75rem);
+  min-width: clamp(120px, 25vw, 180px);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+}
+
+.search button {
+  border: 0;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 999px;
+  padding: clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 0.875rem);
+  cursor: pointer;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  transition: background-color 0.2s ease;
+}
+
+.search button:hover {
+  background: var(--brand-2);
+}
+
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  margin-left: 12px
+}
+
+.lang-switch a {
+  color: var(--muted-text);
+  text-decoration: none
+}
+
+.lang-switch a[aria-current="true"] {
+  color: var(--text);
+  font-weight: 600
+}
+
+/* Language Switcher Dropdown */
+.lang-switcher {
+  position: relative
+}
+
+.lang-dropdown {
+  position: relative
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.lang-toggle:hover {
+  background: var(--bg-muted);
+}
+
+.lang-arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.lang-toggle[aria-expanded="true"] .lang-arrow {
+  transform: rotate(180deg);
+}
+
+.lang-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  display: none;
+  min-width: 80px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  list-style: none;
+  padding: 8px;
+  z-index: 100;
+}
+
+.lang-toggle[aria-expanded="true"]+.lang-menu {
+  display: block;
+}
+
+.lang-option {
+  display: block;
+  padding: 8px 12px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.lang-option:hover,
+.lang-option.active {
+  background: var(--bg-muted);
+  color: var(--brand);
+  font-weight: 500;
+}
+
+/* Main Navigation */
+.mainnav {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 50
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 3vw, 1rem);
+  padding: clamp(0.875rem, 3vw, 1.125rem) clamp(1rem, 4vw, 1.25rem);
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: var(--text)
+}
+
+.brand__logo {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
+  border-radius: 50%;
+
+  color: #fff;
+  font-weight: 1200px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  transition: transform 0.2s ease;
+}
+
+.brand:hover .brand__logo {
+  transform: scale(1.05);
+}
+
+.brand__name {
+  font-weight: 700;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: var(--text);
+}
+
+.nav-toggle {
+  margin-left: auto;
+  display: none;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto
+}
+
+.menu a {
+  display: block;
+  padding: clamp(0.625rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 0.875rem);
+  color: var(--text);
+  text-decoration: none;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+.menu a:hover {
+  background: var(--bg-muted)
+}
+
+.menu .cta a {
+  background: var(--brand);
+  color: #fff
+}
+
+.menu .cta a:hover {
+  background: var(--brand-2)
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-toggle::after {
+  content: '▼';
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 280px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  list-style: none;
+  padding: 12px;
+  margin: 8px 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: var(--bg-muted);
+  color: var(--brand);
+  transform: translateX(5px);
+}
+
+.has-sub {
+  position: relative
+}
+
+.submenu-toggle {
+  border: 0;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer
+}
+
+.submenu {
+  position: absolute;
+  inset: auto auto auto 0;
+  transform: translateY(8px);
+  display: none;
+  min-width: 260px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  list-style: none;
+  margin: 0;
+  z-index: 20
+}
+
+.has-sub:focus-within .submenu,
+.has-sub:hover .submenu {
+  display: block
+}
+
+.submenu a {
+  padding: 8px 12px;
+  white-space: nowrap;
+  border-radius: 6px
+}
+
+.submenu a:hover {
+  background: var(--bg-muted)
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background-image: url("image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: white;
+  padding: clamp(6rem, 15vw, 12rem) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 60vh;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  /* giảm từ 0.45 xuống 0.2 */
+  z-index: 1;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Parallax Background Effect */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  will-change: transform, background-position;
+  transform-style: preserve-3d;
+}
+
+
+
+/* Enhanced parallax for hero section */
+.hero.parallax-bg {
+  background-attachment: scroll;
+  transition: background-position 0.1s ease-out;
+}
+
+/* Fallback for browsers that don't support background-attachment: fixed */
+@supports not (background-attachment: fixed) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    align-items: start;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    background: none;
+  }
+
+.hero__text h1 {
+  font-size: clamp(1rem, 4vw, 2rem);
+  line-height: 1.1;
+  margin: 0 0 clamp(0.75rem, 2vw, 1rem);
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  position: relative;
+}
+
+.hero__text h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.hero__text p {
+  color: #fff;
+  margin: 0 0 clamp(1rem, 3vw, 1.5rem);
+  max-width: 60ch;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  flex-wrap: wrap;
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Two Column Section */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 2rem);
+  align-items: start;
+}
+
+.order,
+.newsletter {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.25rem, 4vw, 1.5rem);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0 18px
+}
+
+.fields {
+  display: flex;
+  gap: 10px
+}
+
+.fields input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px
+}
+
+
+/* Footer styles moved to css/footer-optimized.css */
+
+
+
+/* ==============================
+   VGBC HEADER — Global Business Council Style
+   ============================== */
+
+.global-header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-top {
+  padding: 0.75rem 0;
+  border-bottom: 2px solid #f5b301;
+  /* vàng nhấn */
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #f5b301;
+  margin-right: 12px;
+  transition: transform 0.3s ease;
+}
+
+.brand-link:hover .brand-logo {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #d62828;
+  /* đỏ Việt Nam */
+  letter-spacing: -0.5px;
+}
+
+.brand-tagline {
+  font-size: 0.85rem;
+  color: #961818;
+  /* đỏ đậm */
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-shadow:
+    0 0 4px rgba(245, 179, 1, 0.3),
+    0 0 10px rgba(245, 179, 1, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+
+/* Navigation */
+.main-nav {
+  display: flex;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s, border-color 0.3s;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #f5b301;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu a:hover {
+  color: #d62828;
+}
+
+.nav-cta {
+  background-color: #f5b301;
+  color: #fff !important;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+  background-color: #d62828;
+  color: #fff !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .main-nav.active .nav-menu {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 260px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+
+  .nav-menu a {
+    padding: 0.75rem 0;
+  }
+}
+
+
+/* ==============================
+   ABOUT SECTION — VGBC Global Business Style
+   ============================== */
+
+#about {
+  background: var(--bg, #fff);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 160%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(245, 179, 1, 0.05),
+      rgba(214, 40, 40, 0.05));
+  z-index: 0;
+}
+
+#about .container {
+  position: relative;
+  z-index: 1;
+  background: none;
+}
+
+#about h2 {
+  font-family: var(--font-heading, 'IBM Plex Sans', sans-serif);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #d62828;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #f5b301;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+#about p.lead {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #fff;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, .75),
+    0 0 18px rgba(245, 179, 1, .25);
+  font-weight: 400;
+}
+
+#about .grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+#about .card {
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 179, 1, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+#about .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #f5b301, #d62828);
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+#about .card:hover::before {
+  transform: scaleY(1);
+}
+
+#about .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#about .card .bd {
+  padding: 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+#about .card .bd>div {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d62828;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+#about .card p.small,
+#about .card ul.small {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+#about .card ul li strong {
+  color: #d62828;
+}
+
+@media (max-width: 768px) {
+  #about p.lead {
+    font-size: 1rem;
+  }
+
+  #about .card {
+    text-align: center;
+  }
+
+  #about .card .bd>div {
+    text-align: center;
+  }
+}
+
+
+#about {
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* 🔥 Giữ ảnh cố định, không bị lặp */
+  color: #fff;
+  position: relative;
+}
+
+#about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  /* Overlay để chữ nổi bật */
+  z-index: 1;
+}
+
+

@@ -1,0 +1,43 @@
+{
+  "menu": [
+    {
+      "id": "home",
+      "href": "index.html",
+      "display": true
+    },
+    {
+      "id": "services",
+      "href": "services.html",
+      "display": true
+    },
+    {
+      "id": "interpreters",
+      "href": "phiendichvien.html",
+      "display": true
+    },
+    {
+      "id": "blog",
+      "href": "blog.html",
+      "display": true
+    },
+    {
+      "id": "news",
+      "href": "news.html",
+      "display": true
+    },
+    {
+      "id": "contact",
+      "href": "contact.html",
+      "display": true
+    }
+  ],
+  "cta": {
+    "text": {
+      "vi": "Đăng ký",
+      "en": "Register",
+      "zh": "注册"
+    },
+    "href": "#",
+    "display": true
+  }
+}

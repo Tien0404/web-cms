@@ -1,0 +1,423 @@
+<section id="phiendichvien" class="section" aria-label="Phiên dịch viên" data-i18n-aria="phiendichvien.ariaLabel">
+  <div class="container">
+    <header class="section__header fade-in-up">
+      <h2 data-i18n="phiendichvien.title">Đội ngũ phiên dịch viên</h2>
+      <p class="section__lead" data-i18n="phiendichvien.subtitle">Đội ngũ thông dịch viên chuyên nghiệp, giàu kinh nghiệm sẵn sàng phục vụ các sự kiện của bạn.</p>
+    </header>
+
+    <!-- Filter Section -->
+    <div class="interpreter-filters fade-in-up">
+      <div class="filter-group">
+        <label data-i18n="phiendichvien.filter.language">Ngôn ngữ:</label>
+        <select id="languageFilter" class="filter-select">
+          <option value="all" data-i18n="phiendichvien.filter.allLanguages">Tất cả ngôn ngữ</option>
+          <option value="english" data-i18n="phiendichvien.filter.english">Tiếng Anh</option>
+          <option value="chinese" data-i18n="phiendichvien.filter.chinese">Tiếng Trung</option>
+          <option value="japanese" data-i18n="phiendichvien.filter.japanese">Tiếng Nhật</option>
+          <option value="korean" data-i18n="phiendichvien.filter.korean">Tiếng Hàn</option>
+          <option value="french" data-i18n="phiendichvien.filter.french">Tiếng Pháp</option>
+          <option value="german" data-i18n="phiendichvien.filter.german">Tiếng Đức</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label data-i18n="phiendichvien.filter.specialization">Chuyên môn:</label>
+        <select id="specializationFilter" class="filter-select">
+          <option value="all" data-i18n="phiendichvien.filter.allSpecializations">Tất cả chuyên môn</option>
+          <option value="conference" data-i18n="phiendichvien.filter.conference">Hội nghị</option>
+          <option value="business" data-i18n="phiendichvien.filter.business">Kinh doanh</option>
+          <option value="technical" data-i18n="phiendichvien.filter.technical">Kỹ thuật</option>
+          <option value="medical" data-i18n="phiendichvien.filter.medical">Y tế</option>
+          <option value="legal" data-i18n="phiendichvien.filter.legal">Pháp lý</option>
+          <option value="education" data-i18n="phiendichvien.filter.education">Giáo dục</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label data-i18n="phiendichvien.filter.experience">Kinh nghiệm:</label>
+        <select id="experienceFilter" class="filter-select">
+          <option value="all" data-i18n="phiendichvien.filter.allExperience">Tất cả cấp độ</option>
+          <option value="junior" data-i18n="phiendichvien.filter.junior">1-3 năm</option>
+          <option value="senior" data-i18n="phiendichvien.filter.senior">3-7 năm</option>
+          <option value="expert" data-i18n="phiendichvien.filter.expert">Trên 7 năm</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Interpreters Grid -->
+    <div class="interpreters-grid" id="interpretersGrid">
+      <!-- Interpreter Card 1 -->
+      <div class="interpreter-card" data-language="english" data-specialization="conference,business" data-experience="expert">
+        <div class="interpreter-avatar">
+          <img src="../images/interpreters/interpreter1.jpg" alt="Nguyễn Văn A" data-i18n-alt="phiendichvien.interpreter1.alt">
+          <div class="interpreter-status available" data-i18n="phiendichvien.status.available">Sẵn sàng</div>
+        </div>
+        <div class="interpreter-info">
+          <h3 class="interpreter-name" data-i18n="phiendichvien.interpreter1.name">Nguyễn Văn A</h3>
+          <div class="interpreter-languages">
+            <span class="language-tag" data-i18n="phiendichvien.languages.english">Tiếng Anh</span>
+            <span class="language-tag" data-i18n="phiendichvien.languages.vietnamese">Tiếng Việt</span>
+          </div>
+          <div class="interpreter-specialization">
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.conference">Hội nghị</span>
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.business">Kinh doanh</span>
+          </div>
+          <div class="interpreter-experience">
+            <span data-i18n="phiendichvien.experience">Kinh nghiệm:</span>
+            <span data-i18n="phiendichvien.interpreter1.experience">10+ năm</span>
+          </div>
+          <div class="interpreter-rating">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <span class="rating-text">(4.9/5.0)</span>
+          </div>
+          <div class="interpreter-actions">
+            <button class="btn btn--primary btn--small view-profile" data-interpreter-id="1" data-i18n="phiendichvien.actions.viewProfile">Xem hồ sơ</button>
+            <button class="btn btn--ghost btn--small book-interpreter" data-interpreter-id="1" data-i18n="phiendichvien.actions.book">Đặt lịch</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interpreter Card 2 -->
+      <div class="interpreter-card" data-language="chinese" data-specialization="business,technical" data-experience="senior">
+        <div class="interpreter-avatar">
+          <img src="../images/interpreters/interpreter2.jpg" alt="Trần Thị B" data-i18n-alt="phiendichvien.interpreter2.alt">
+          <div class="interpreter-status available" data-i18n="phiendichvien.status.available">Sẵn sàng</div>
+        </div>
+        <div class="interpreter-info">
+          <h3 class="interpreter-name" data-i18n="phiendichvien.interpreter2.name">Trần Thị B</h3>
+          <div class="interpreter-languages">
+            <span class="language-tag" data-i18n="phiendichvien.languages.chinese">Tiếng Trung</span>
+            <span class="language-tag" data-i18n="phiendichvien.languages.vietnamese">Tiếng Việt</span>
+          </div>
+          <div class="interpreter-specialization">
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.business">Kinh doanh</span>
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.technical">Kỹ thuật</span>
+          </div>
+          <div class="interpreter-experience">
+            <span data-i18n="phiendichvien.experience">Kinh nghiệm:</span>
+            <span data-i18n="phiendichvien.interpreter2.experience">5 năm</span>
+          </div>
+          <div class="interpreter-rating">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">☆</span>
+            </div>
+            <span class="rating-text">(4.7/5.0)</span>
+          </div>
+          <div class="interpreter-actions">
+            <button class="btn btn--primary btn--small view-profile" data-interpreter-id="2" data-i18n="phiendichvien.actions.viewProfile">Xem hồ sơ</button>
+            <button class="btn btn--ghost btn--small book-interpreter" data-interpreter-id="2" data-i18n="phiendichvien.actions.book">Đặt lịch</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interpreter Card 3 -->
+      <div class="interpreter-card" data-language="japanese" data-specialization="technical,education" data-experience="senior">
+        <div class="interpreter-avatar">
+          <img src="../images/interpreters/interpreter3.jpg" alt="Lê Văn C" data-i18n-alt="phiendichvien.interpreter3.alt">
+          <div class="interpreter-status busy" data-i18n="phiendichvien.status.busy">Bận</div>
+        </div>
+        <div class="interpreter-info">
+          <h3 class="interpreter-name" data-i18n="phiendichvien.interpreter3.name">Lê Văn C</h3>
+          <div class="interpreter-languages">
+            <span class="language-tag" data-i18n="phiendichvien.languages.japanese">Tiếng Nhật</span>
+            <span class="language-tag" data-i18n="phiendichvien.languages.vietnamese">Tiếng Việt</span>
+          </div>
+          <div class="interpreter-specialization">
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.technical">Kỹ thuật</span>
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.education">Giáo dục</span>
+          </div>
+          <div class="interpreter-experience">
+            <span data-i18n="phiendichvien.experience">Kinh nghiệm:</span>
+            <span data-i18n="phiendichvien.interpreter3.experience">6 năm</span>
+          </div>
+          <div class="interpreter-rating">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <span class="rating-text">(4.8/5.0)</span>
+          </div>
+          <div class="interpreter-actions">
+            <button class="btn btn--primary btn--small view-profile" data-interpreter-id="3" data-i18n="phiendichvien.actions.viewProfile">Xem hồ sơ</button>
+            <button class="btn btn--ghost btn--small book-interpreter" data-interpreter-id="3" data-i18n="phiendichvien.actions.book" disabled>Đặt lịch</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interpreter Card 4 -->
+      <div class="interpreter-card" data-language="korean" data-specialization="business,medical" data-experience="expert">
+        <div class="interpreter-avatar">
+          <img src="../images/interpreters/interpreter4.jpg" alt="Phạm Thị D" data-i18n-alt="phiendichvien.interpreter4.alt">
+          <div class="interpreter-status available" data-i18n="phiendichvien.status.available">Sẵn sàng</div>
+        </div>
+        <div class="interpreter-info">
+          <h3 class="interpreter-name" data-i18n="phiendichvien.interpreter4.name">Phạm Thị D</h3>
+          <div class="interpreter-languages">
+            <span class="language-tag" data-i18n="phiendichvien.languages.korean">Tiếng Hàn</span>
+            <span class="language-tag" data-i18n="phiendichvien.languages.vietnamese">Tiếng Việt</span>
+          </div>
+          <div class="interpreter-specialization">
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.business">Kinh doanh</span>
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.medical">Y tế</span>
+          </div>
+          <div class="interpreter-experience">
+            <span data-i18n="phiendichvien.experience">Kinh nghiệm:</span>
+            <span data-i18n="phiendichvien.interpreter4.experience">8 năm</span>
+          </div>
+          <div class="interpreter-rating">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <span class="rating-text">(4.9/5.0)</span>
+          </div>
+          <div class="interpreter-actions">
+            <button class="btn btn--primary btn--small view-profile" data-interpreter-id="4" data-i18n="phiendichvien.actions.viewProfile">Xem hồ sơ</button>
+            <button class="btn btn--ghost btn--small book-interpreter" data-interpreter-id="4" data-i18n="phiendichvien.actions.book">Đặt lịch</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interpreter Card 5 -->
+      <div class="interpreter-card" data-language="french" data-specialization="legal,education" data-experience="senior">
+        <div class="interpreter-avatar">
+          <img src="../images/interpreters/interpreter5.png" alt="Hoàng Văn E" data-i18n-alt="phiendichvien.interpreter5.alt">
+          <div class="interpreter-status available" data-i18n="phiendichvien.status.available">Sẵn sàng</div>
+        </div>
+        <div class="interpreter-info">
+          <h3 class="interpreter-name" data-i18n="phiendichvien.interpreter5.name">Hoàng Văn E</h3>
+          <div class="interpreter-languages">
+            <span class="language-tag" data-i18n="phiendichvien.languages.french">Tiếng Pháp</span>
+            <span class="language-tag" data-i18n="phiendichvien.languages.vietnamese">Tiếng Việt</span>
+          </div>
+          <div class="interpreter-specialization">
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.legal">Pháp lý</span>
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.education">Giáo dục</span>
+          </div>
+          <div class="interpreter-experience">
+            <span data-i18n="phiendichvien.experience">Kinh nghiệm:</span>
+            <span data-i18n="phiendichvien.interpreter5.experience">4 năm</span>
+          </div>
+          <div class="interpreter-rating">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">☆</span>
+            </div>
+            <span class="rating-text">(4.6/5.0)</span>
+          </div>
+          <div class="interpreter-actions">
+            <button class="btn btn--primary btn--small view-profile" data-interpreter-id="5" data-i18n="phiendichvien.actions.viewProfile">Xem hồ sơ</button>
+            <button class="btn btn--ghost btn--small book-interpreter" data-interpreter-id="5" data-i18n="phiendichvien.actions.book">Đặt lịch</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interpreter Card 6 -->
+      <div class="interpreter-card" data-language="german" data-specialization="technical,medical" data-experience="junior">
+        <div class="interpreter-avatar">
+          <img src="../images/interpreters/interpreter6.png" alt="Vũ Thị F" data-i18n-alt="phiendichvien.interpreter6.alt">
+          <div class="interpreter-status available" data-i18n="phiendichvien.status.available">Sẵn sàng</div>
+        </div>
+        <div class="interpreter-info">
+          <h3 class="interpreter-name" data-i18n="phiendichvien.interpreter6.name">Vũ Thị F</h3>
+          <div class="interpreter-languages">
+            <span class="language-tag" data-i18n="phiendichvien.languages.german">Tiếng Đức</span>
+            <span class="language-tag" data-i18n="phiendichvien.languages.vietnamese">Tiếng Việt</span>
+          </div>
+          <div class="interpreter-specialization">
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.technical">Kỹ thuật</span>
+            <span class="specialization-tag" data-i18n="phiendichvien.specialization.medical">Y tế</span>
+          </div>
+          <div class="interpreter-experience">
+            <span data-i18n="phiendichvien.experience">Kinh nghiệm:</span>
+            <span data-i18n="phiendichvien.interpreter6.experience">2 năm</span>
+          </div>
+          <div class="interpreter-rating">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">☆</span>
+            </div>
+            <span class="rating-text">(4.5/5.0)</span>
+          </div>
+          <div class="interpreter-actions">
+            <button class="btn btn--primary btn--small view-profile" data-interpreter-id="6" data-i18n="phiendichvien.actions.viewProfile">Xem hồ sơ</button>
+            <button class="btn btn--ghost btn--small book-interpreter" data-interpreter-id="6" data-i18n="phiendichvien.actions.book">Đặt lịch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="load-more-container">
+      <button class="btn btn--primary" id="loadMoreInterpreters" data-i18n="phiendichvien.loadMore">Tải thêm phiên dịch viên</button>
+    </div>
+  </div>
+</section>
+
+<!-- Interpreter Profile Modal -->
+<div id="interpreterModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="interpreterModalTitle">
+  <div class="modal__overlay" tabindex="-1"></div>
+  <div class="modal__content modal__content--large">
+    <div class="modal__header">
+      <h3 id="interpreterModalTitle" data-i18n="phiendichvien.profile.title">Hồ sơ phiên dịch viên</h3>
+      <button class="modal__close" aria-label="Đóng" data-i18n-aria="phiendichvien.profile.closeModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-cap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="interpreter-profile">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <img id="profileImage" src="" alt="" data-i18n-alt="phiendichvien.profile.avatarAlt">
+            <div id="profileStatus" class="interpreter-status"></div>
+          </div>
+          <div class="profile-basic-info">
+            <h2 id="profileName" class="profile-name"></h2>
+            <div id="profileLanguages" class="profile-languages"></div>
+            <div id="profileRating" class="profile-rating"></div>
+          </div>
+        </div>
+        
+        <div class="profile-details">
+          <div class="detail-section">
+            <h3 data-i18n="phiendichvien.profile.about">Giới thiệu</h3>
+            <p id="profileAbout"></p>
+          </div>
+          
+          <div class="detail-section">
+            <h3 data-i18n="phiendichvien.profile.specialization">Chuyên môn</h3>
+            <div id="profileSpecialization" class="profile-specialization-tags"></div>
+          </div>
+          
+          <div class="detail-section">
+            <h3 data-i18n="phiendichvien.profile.experience">Kinh nghiệm</h3>
+            <p id="profileExperience"></p>
+          </div>
+          
+          <div class="detail-section">
+            <h3 data-i18n="phiendichvien.profile.education">Học vấn</h3>
+            <p id="profileEducation"></p>
+          </div>
+          
+          <div class="detail-section">
+            <h3 data-i18n="phiendichvien.profile.certifications">Chứng chỉ</h3>
+            <div id="profileCertifications" class="certification-list"></div>
+          </div>
+          
+          <div class="detail-section">
+            <h3 data-i18n="phiendichvien.profile.reviews">Đánh giá từ khách hàng</h3>
+            <div id="profileReviews" class="reviews-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost" id="closeProfileBtn" data-i18n="phiendichvien.profile.close">Đóng</button>
+      <button class="btn btn--primary" id="bookInterpreterBtn" data-i18n="phiendichvien.profile.book">Đặt lịch phiên dịch viên</button>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+  <div class="modal__overlay" tabindex="-1"></div>
+  <div class="modal__content">
+    <div class="modal__header">
+      <h3 id="bookingModalTitle" data-i18n="phiendichvien.booking.title">Đặt lịch phiên dịch viên</h3>
+      <button class="modal__close" aria-label="Đóng" data-i18n-aria="phiendichvien.booking.closeModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-cap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="bookingInterpreter" data-i18n="phiendichvien.booking.form.interpreter">Phiên dịch viên:</label>
+          <input type="text" id="bookingInterpreter" name="interpreter" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingDate" data-i18n="phiendichvien.booking.form.date">Ngày:</label>
+          <input type="date" id="bookingDate" name="date" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingTime" data-i18n="phiendichvien.booking.form.time">Thời gian:</label>
+          <input type="time" id="bookingTime" name="time" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingDuration" data-i18n="phiendichvien.booking.form.duration">Thời lượng (giờ):</label>
+          <input type="number" id="bookingDuration" name="duration" min="1" max="8" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingEventType" data-i18n="phiendichvien.booking.form.eventType">Loại sự kiện:</label>
+          <select id="bookingEventType" name="eventType" required>
+            <option value="conference" data-i18n="phiendichvien.booking.eventTypes.conference">Hội nghị</option>
+            <option value="meeting" data-i18n="phiendichvien.booking.eventTypes.meeting">Họp</option>
+            <option value="workshop" data-i18n="phiendichvien.booking.eventTypes.workshop">Hội thảo</option>
+            <option value="training" data-i18n="phiendichvien.booking.eventTypes.training">Đào tạo</option>
+            <option value="other" data-i18n="phiendichvien.booking.eventTypes.other">Khác</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingLocation" data-i18n="phiendichvien.booking.form.location">Địa điểm:</label>
+          <input type="text" id="bookingLocation" name="location" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingNotes" data-i18n="phiendichvien.booking.form.notes">Ghi chú:</label>
+          <textarea id="bookingNotes" name="notes" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingContact" data-i18n="phiendichvien.booking.form.contact">Thông tin liên hệ:</label>
+          <input type="text" id="bookingContact" name="contact" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingEmail" data-i18n="phiendichvien.booking.form.email">Email:</label>
+          <input type="email" id="bookingEmail" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookingPhone" data-i18n="phiendichvien.booking.form.phone">Điện thoại:</label>
+          <input type="tel" id="bookingPhone" name="phone" required>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost" id="cancelBookingBtn" data-i18n="phiendichvien.booking.cancel">Hủy</button>
+      <button class="btn btn--primary" id="submitBookingBtn" data-i18n="phiendichvien.booking.submit">Gửi yêu cầu</button>
+    </div>
+  </div>
+</div>

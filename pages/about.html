@@ -1,0 +1,338 @@
+<section id="about" class="section parallax-bg" style="background-image: url('images/aipro.png');"
+  data-parallax-speed="0.5">
+  <div class="container fade-in-up">
+    <div id="aboutContent">
+      <h2 data-i18n="aboutvgbc.title">About VGBC</h2>
+      <p class="lead" data-i18n="aboutvgbc.subtitle">
+        The <strong>Vietnam Global Business Council (VGBC)</strong> empowers Vietnamese and international enterprises
+        to <em>connect, collaborate and grow sustainably</em>.
+        We operate as a <strong>strategic trade & business council</strong>, facilitating cross‑border partnerships,
+        trade missions and market entry between Vietnam and the world.
+      </p>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card fade-in-left">
+          <div class="bd">
+            <div style="font-weight:800;color:var(--brand)" data-i18n="aboutvgbc.title1">Mission</div>
+            <p class="small" data-i18n="aboutvgbc.subtitle1">Be the trusted gateway that enhances Vietnam’s global
+              business presence—linking
+              government, corporations and entrepreneurs through meaningful cooperation and high‑impact initiatives.
+            </p>
+          </div>
+        </div>
+        <div class="card fade-in-up">
+          <div class="bd">
+            <div style="font-weight:800;color:var(--brand)" data-i18n="aboutvgbc.title2">Vision</div>
+            <p class="small" data-i18n="aboutvgbc.subtitle2">Position VGBC as <strong>Asia’s leading hub</strong> for
+              international business promotion
+              and partnership development—where language, integrity and innovation converge.</p>
+          </div>
+        </div>
+        <div class="card fade-in-right">
+          <div class="bd">
+            <div style="font-weight:800;color:var(--brand)" data-i18n="aboutvgbc.title3">Core Values</div>
+            <ul class="small" style="margin:0;line-height:1.8">
+              <li data-i18n="aboutvgbc.subtitle3-1"><strong>Excellence & Integrity</strong> — International‑grade
+                professionalism.</li>
+              <li data-i18n="aboutvgbc.subtitle3-2"><strong>Bridging East & West</strong> — Multilingual experts turn
+                communication into connection.
+              </li>
+              <li data-i18n="aboutvgbc.subtitle3-3"><strong>Empowerment & Growth</strong> — Measurable impact for
+                sustainable expansion.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+     <style>
+        :root {
+            --primary-red: #b30000;
+            --gold: #d4af37;
+            --light-gold: #fff8e1;
+            --dark-gray: #333;
+            --medium-gray: #555;
+            --light-gray: #f5f5f5;
+            --white: #fff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'EB Garamond', serif;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .contact-section {
+            background: var(--white);
+            padding: 100px 8%;
+            color: var(--dark-gray);
+            
+            line-height: 1.6;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact__info h2 {
+           
+            color: var(--primary-red);
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .contact__info h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--primary-red));
+            border-radius: 2px;
+        }
+
+        .contact__intro {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: var(--medium-gray);
+            max-width: 90%;
+        }
+
+        .contact__details {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .contact__details li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact__details i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .contact__details strong {
+            color: var(--primary-red);
+            min-width: 110px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .contact__details a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact__details a:hover {
+            color: var(--gold);
+        }
+
+        /* Social */
+        .social {
+            margin-top: 2rem;
+        }
+
+        .social h3 {
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: var(--light-gray);
+            color: var(--gold);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Form */
+        .contact__form {
+            background: var(--light-gold);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact__form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--primary-red));
+        }
+
+        .contact__form h3 {
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+           
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+            background: var(--white);
+           
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--primary-red));
+            border: none;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(179, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(179, 0, 0, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* Map */
+        .contact__map {
+            margin-top: 3rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .contact__map .ratio-4x3 {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* 4:3 ratio */
+        }
+
+        .contact__map iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact__intro {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 80px 5%;
+            }
+            
+            .contact__form {
+                padding: 2rem;
+            }
+            
+            .contact__info h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact__details li {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .contact__details strong {
+                min-width: auto;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</section>
