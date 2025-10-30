@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VGBC Admin</title>
-    <script src="https://unpkg.com/netlify-cms-app@^2.15.72/dist/netlify-cms.js"></script>
+    <title>VGBC Admin Panel</title>
   </head>
   <body>
+    <!-- Load Netlify CMS (Decap CMS) -->
+    <script src="https://unpkg.com/netlify-cms-app@^2.15.72/dist/netlify-cms.js"></script>
+
     <script>
-      // Đăng ký style dùng chung của site cho bản preview (tùy chọn)
-      if (window.CMS) {
+      // Khởi tạo CMS sau khi script load
+      if (window.NetlifyCmsApp) {
+        window.NetlifyCmsApp.init();
+        // Tuỳ chọn: đăng ký stylesheet để xem preview
+        window.NetlifyCmsApp.registerPreviewStyle("/css/styles.css");
+      } else if (window.CMS) {
+        window.CMS.init();
         window.CMS.registerPreviewStyle("/css/styles.css");
+      } else {
+        console.error("⚠️ Netlify CMS chưa load được!");
       }
     </script>
   </body>
