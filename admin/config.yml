@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main  # hoặc master
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - file: "translation/vi.json"
+        label: "Vietnamese Content"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string" }
+
+  - name: "news"
+    label: "Tin tức"
+    folder: "content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Nội dung", name: "body", widget: "markdown" }
