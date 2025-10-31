@@ -4,24 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VGBC Admin Panel</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <!-- Load Netlify CMS (Decap CMS) -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
 
 
-    <script>
-      // Khởi tạo CMS sau khi script load
-      if (window.NetlifyCmsApp) {
-        window.NetlifyCmsApp.init();
-        // Tuỳ chọn: đăng ký stylesheet để xem preview
-        window.NetlifyCmsApp.registerPreviewStyle("/css/styles.css");
-      } else if (window.CMS) {
-        window.CMS.init();
-        window.CMS.registerPreviewStyle("/css/styles.css");
-      } else {
-        console.error("⚠️ Netlify CMS chưa load được!");
-      }
-    </script>
+
   </body>
 </html>
