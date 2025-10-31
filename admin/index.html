@@ -2,8 +2,194 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>VGBC Admin CMS</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGBC Admin CMS - Vietnam Global Business Council</title>
+    <script src="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.css">
+    <script src="custom-widgets.js"></script>
+    <style>
+      body { 
+        margin: 0; 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #f8f9fa;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <script>
+      // Custom configuration for VGBC
+      window.CMS_MANUAL_INIT = true;
+      CMS.init({
+        config: {
+          backend: {
+            name: 'git-gateway',
+            branch: 'main',
+            base_url: 'https://api.netlify.com',
+            auth_endpoint: 'auth'
+          },
+          site_url: 'https://vgbcglobal.netlify.app',
+          logo_url: '/images/logo-removebg-preview.png',
+          media_folder: 'images/uploads',
+          public_folder: '/images/uploads',
+          publish_mode: 'editorial_workflow',
+          collections: [
+            // Static Sections
+            {
+              name: 'sections',
+              label: 'Website Sections',
+              files: [
+                {
+                  label: 'Hero Section',
+                  name: 'hero',
+                  file: 'pages/hero.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                },
+                {
+                  label: 'About Section',
+                  name: 'about',
+                  file: 'pages/about.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                },
+                {
+                  label: 'Services Section',
+                  name: 'services',
+                  file: 'pages/services.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                },
+                {
+                  label: 'Ecosystem (New Services)',
+                  name: 'newservices',
+                  file: 'pages/newservices.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                },
+                {
+                  label: 'Business Network',
+                  name: 'businessNetwork',
+                  file: 'pages/business-network.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                },
+                {
+                  label: 'Contact Section',
+                  name: 'contact',
+                  file: 'pages/contact.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                },
+                {
+                  label: 'Footer',
+                  name: 'footer',
+                  file: 'pages/footer.html',
+                  fields: [
+                    { label: 'HTML Content', name: 'body', widget: 'code', default_language: 'html' }
+                  ]
+                }
+              ]
+            },
+            // News Articles
+            {
+              name: 'news',
+              label: 'News Articles',
+              folder: 'content/news',
+              create: true,
+              slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+              extension: 'md',
+              format: 'frontmatter',
+              fields: [
+                { label: 'Title', name: 'title', widget: 'string', required: true },
+                { label: 'Publish Date', name: 'date', widget: 'datetime', required: true },
+                { label: 'Author', name: 'author', widget: 'string', default: 'VGBC Team' },
+                { label: 'Featured Image', name: 'image', widget: 'image', required: false },
+                { label: 'Excerpt', name: 'excerpt', widget: 'text', required: false },
+                { label: 'Category', name: 'category', widget: 'select', options: ['Business', 'Translation', 'News', 'Events'], required: false },
+                { label: 'Tags', name: 'tags', widget: 'list', required: false },
+                { label: 'Content', name: 'body', widget: 'markdown', required: true }
+              ]
+            },
+            // Translations
+            {
+              name: 'translations',
+              label: 'Language Translations',
+              files: [
+                {
+                  label: 'Vietnamese (vi)',
+                  name: 'vi',
+                  file: 'translations/vi.json',
+                  fields: [
+                    { label: 'Vietnamese Translations', name: 'body', widget: 'code', default_language: 'json' }
+                  ]
+                },
+                {
+                  label: 'English (en)',
+                  name: 'en',
+                  file: 'translations/en.json',
+                  fields: [
+                    { label: 'English Translations', name: 'body', widget: 'code', default_language: 'json' }
+                  ]
+                },
+                {
+                  label: 'Chinese (zh)',
+                  name: 'zh',
+                  file: 'translations/zh.json',
+                  fields: [
+                    { label: 'Chinese Translations', name: 'body', widget: 'code', default_language: 'json' }
+                  ]
+                }
+              ]
+            },
+            // Testimonials Management
+            {
+              name: 'testimonials',
+              label: 'Customer Testimonials',
+              folder: 'content/testimonials',
+              create: true,
+              slug: '{{slug}}',
+              extension: 'md',
+              format: 'frontmatter',
+              fields: [
+                { label: 'Customer Name', name: 'name', widget: 'string', required: true },
+                { label: 'Company', name: 'company', widget: 'string', required: false },
+                { label: 'Position', name: 'position', widget: 'string', required: false },
+                { label: 'Testimonial', name: 'content', widget: 'text', required: true },
+                { label: 'Rating', name: 'rating', widget: 'number', min: 1, max: 5, default: 5 },
+                { label: 'Customer Image', name: 'image', widget: 'image', required: false },
+                { label: 'Language', name: 'language', widget: 'select', options: ['vi', 'en', 'zh'], default: 'vi' }
+              ]
+            },
+            // Interpreters/Staff Management
+            {
+              name: 'interpreters',
+              label: 'Interpreters & Staff',
+              folder: 'content/interpreters',
+              create: true,
+              slug: '{{slug}}',
+              extension: 'md',
+              format: 'frontmatter',
+              fields: [
+                { label: 'Full Name', name: 'name', widget: 'string', required: true },
+                { label: 'Position', name: 'position', widget: 'string', required: true },
+                { label: 'Bio', name: 'bio', widget: 'text', required: true },
+                { label: 'Email', name: 'email', widget: 'string', required: false },
+                { label: 'Phone', name: 'phone', widget: 'string', required: false },
+                { label: 'Languages', name: 'languages', widget: 'list', required: true },
+                { label: 'Experience Years', name: 'experience', widget: 'number', required: false },
+                { label: 'Photo', name: 'image', widget: 'image', required: false },
+                { label: 'Specializations', name: 'specializations', widget: 'list', required: false }
+              ]
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
 </html>

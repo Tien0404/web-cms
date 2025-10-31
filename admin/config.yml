@@ -1,22 +1,31 @@
 backend:
   name: git-gateway
-  branch: main          # hoặc master nếu repo cũ
+  branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
 site_url: https://vgbcglobal.netlify.app
 logo_url: /images/logo-removebg-preview.png
 
+# Media settings
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
+# Editorial workflow for review process
 publish_mode: editorial_workflow
 
-collections:
+# Custom settings
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
 
-  # --- 1. Static Sections (HTML trong /pages) ---
+# Collections
+collections:
+  # Static Sections
   - name: "sections"
     label: "Website Sections"
+    description: "Manage static HTML sections of the website"
     files:
       - label: "Hero Section"
         name: "hero"
@@ -60,24 +69,67 @@ collections:
         fields:
           - { label: "HTML Content", name: "body", widget: "code", default_language: "html" }
 
-  # --- 2. News Articles (dạng Markdown trong /news) ---
+  # News Articles
   - name: "news"
     label: "News Articles"
-    folder: "news"
+    description: "Manage news and blog articles"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - { label: "Author", name: "author", widget: "string", default: "VGBC Team" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Category", name: "category", widget: "select", options: ["Business", "Translation", "News", "Events"], required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Content", name: "body", widget: "markdown", required: true }
+
+  # Testimonials
+  - name: "testimonials"
+    label: "Customer Testimonials"
+    description: "Manage customer testimonials and reviews"
+    folder: "content/testimonials"
     create: true
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "VGBC Team" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Customer Name", name: "name", widget: "string", required: true }
+      - { label: "Company", name: "company", widget: "string", required: false }
+      - { label: "Position", name: "position", widget: "string", required: false }
+      - { label: "Testimonial", name: "content", widget: "text", required: true }
+      - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+      - { label: "Customer Image", name: "image", widget: "image", required: false }
+      - { label: "Language", name: "language", widget: "select", options: ["vi", "en", "zh"], default: "vi" }
 
-  # --- 3. Translations (đa ngôn ngữ JSON) ---
+  # Interpreters & Staff
+  - name: "interpreters"
+    label: "Interpreters & Staff"
+    description: "Manage team members and interpreters"
+    folder: "content/interpreters"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Full Name", name: "name", widget: "string", required: true }
+      - { label: "Position", name: "position", widget: "string", required: true }
+      - { label: "Bio", name: "bio", widget: "text", required: true }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Phone", name: "phone", widget: "string", required: false }
+      - { label: "Languages", name: "languages", widget: "list", required: true }
+      - { label: "Experience Years", name: "experience", widget: "number", required: false }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+      - { label: "Specializations", name: "specializations", widget: "list", required: false }
+
+  # Translations
   - name: "translations"
     label: "Language Translations"
+    description: "Manage multi-language translations"
     files:
       - label: "Vietnamese (vi)"
         name: "vi"
